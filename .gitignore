@@ -44,11 +44,9 @@ $RECYCLE.BIN/
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 *_secrets.json
 *_secrets.txt
-/www/assets/*
-!/www/assets/processed/
-!/www/assets/raw/
-/www/assets/processed/*
-/www/assets/raw/*
-!/www/assets/processed/README.md
-!/www/assets/raw/README.md
-/srv/lucee/logs/*
+/www/*
+!/www/README.md
+/vsaq/*
+!/vsaq/README.md
+/srv/logs/httpd/*
+!/srv/logs/httpd/README.md
