@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+
+  vsaq:
+    container_name: vsaq_docked
+    build:
+      context: .
+      dockerfile: ./srv/Dockerfile
+    volumes:
+      - ./srv/logs/httpd:/var/log/httpd
+      - ./www:/var/www/html_local
+    ports:
+      - "80:80"
+
