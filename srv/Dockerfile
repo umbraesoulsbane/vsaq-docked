@@ -12,16 +12,20 @@ RUN yum -y --setopt=tsflags=nodocs update && \
 	yum -y install java-1.8.0-openjdk && \
     yum clean all
 
-# Forked VSAQ Repo (https://github.com/google/vsaq) to correct submodule dependancies and allow for customization.
-RUN	git clone --recursive https://github.com/umbraesoulsbane/vsaq/ /var/vsaq
+# Forked VSAQ Repo (https://github.com/google/vsaq) to correct submodule dependancies.
+# RUN	git clone --recursive https://github.com/umbraesoulsbane/vsaq/ /var/vsaq/core
 
-# Local Development - Patch in custom files WIP
-# RUN rm /var/vsaq/vsaq/static/*.*
-# COPY ./vsaq/static/*.* /var/vsaq/vsaq/static/
-RUN rm /var/vsaq/client_side_only_impl/*.*
-COPY ./vsaq/client_side_only_impl/*.* /var/vsaq/client_side_only_impl/
+# -- START -- Uses the official repo and manually processes missing submodules. If you use the code above you can delete this block through END comment.
+RUN	git clone --recursive https://github.com/google/vsaq/ /var/vsaq/core
+RUN	git clone https://github.com/google/closure-templates /var/vsaq/third_party/closure-templates
+RUN	git clone https://github.com/google/safe-html-types/ /var/vsaq/third_party/safe-html-types
+RUN cp -r /var/vsaq/third_party/* /var/vsaq/core/third_party/
+# -- END --
 
-WORKDIR /var/vsaq
+RUN rm /var/vsaq/core/client_side_only_impl/*.*
+COPY ./vsaq/client_side_only_impl/*.* /var/vsaq/core/client_side_only_impl/
+
+WORKDIR /var/vsaq/core
 RUN ./do.sh install_deps
 RUN ./do.sh check_deps
 RUN ./do.sh build
