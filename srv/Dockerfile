@@ -22,7 +22,6 @@ RUN	git clone https://github.com/google/safe-html-types/ /var/vsaq/third_party/s
 RUN cp -r /var/vsaq/third_party/* /var/vsaq/core/third_party/
 # -- END --
 
-# RUN rm /var/vsaq/core/client_side_only_impl/*.*
 COPY ./vsaq/client_side_only_impl/*.* /var/vsaq/core/client_side_only_impl/
 COPY ./vsaq/static/* /var/vsaq/core/vsaq/static/
 COPY ./vsaq/questionnaires/* /var/vsaq/core/questionnaires/
@@ -32,13 +31,15 @@ WORKDIR /var/vsaq/core
 RUN ./do.sh install_deps
 RUN ./do.sh check_deps
 RUN ./do.sh build
+# Removed to use Apache 
 # RUN ./do.sh build_prod
 RUN cp -r build/. /var/www/html/
+# Removed to use Apache
 # RUN ./do.sh run
 
 EXPOSE 80
 
-# Simple startup script to avoid some issues observed with container restart
+# Simple startup script to avoid some Apache issues observed with container restart
 ADD ./srv/run-httpd.sh /run-httpd.sh
 RUN chmod -v +x /run-httpd.sh
 
