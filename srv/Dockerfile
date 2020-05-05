@@ -22,8 +22,11 @@ RUN	git clone https://github.com/google/safe-html-types/ /var/vsaq/third_party/s
 RUN cp -r /var/vsaq/third_party/* /var/vsaq/core/third_party/
 # -- END --
 
-RUN rm /var/vsaq/core/client_side_only_impl/*.*
+# RUN rm /var/vsaq/core/client_side_only_impl/*.*
 COPY ./vsaq/client_side_only_impl/*.* /var/vsaq/core/client_side_only_impl/
+COPY ./vsaq/static/* /var/vsaq/core/vsaq/static/
+COPY ./vsaq/questionnaires/* /var/vsaq/core/questionnaires/
+
 
 WORKDIR /var/vsaq/core
 RUN ./do.sh install_deps

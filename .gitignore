@@ -43,12 +43,11 @@ $RECYCLE.BIN/
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 .env
-env.js
-*_secrets.json
-*_secrets.txt
-/www/*
-#!/www/README.md
-/vsaq/*
-!/vsaq/README.md
+/vsaq/client_side_only_impl/*
+/vsaq/questionnaires/*
+/vsaq/static/*
+!/vsaq/client_side_only_impl/README.md
+!/vsaq/questionnaires/README.md
+!/vsaq/static/README.md
 /srv/logs/httpd/*
 !/srv/logs/httpd/README.md

@@ -9,7 +9,6 @@ services:
       dockerfile: ./srv/Dockerfile
     volumes:
       - ./srv/logs/httpd:/var/log/httpd
-      - ./www:/var/www/html_local
     ports:
       - "80:80"
 
