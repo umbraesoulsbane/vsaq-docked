@@ -17,7 +17,7 @@ This is a skeleton project for working with VSAQ (https://github.com/google/vsaq
 	- /questionnaires = https://github.com/google/vsaq/tree/master/questionnaires
 	- /static = https://github.com/google/vsaq/tree/master/vsaq/static
 
-###### Usage
+## Usage
 When container starts all files in the ./vsaq folder is copied into the relevant cloned repo locations and the vsaq application is compiled. Changes to these files requires re-running the docker-compose.
 
 **Note:** Changes to CSS files will require a hard reload in the browser to be visible.
