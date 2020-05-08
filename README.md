@@ -11,11 +11,11 @@ This is a skeleton project for working with VSAQ (https://github.com/google/vsaq
 - Contains Dockerfiles and logs
 
 **/vsaq**
-- Custom code locaions.
+- Custom code locations.
 - Base files to customize:
-- - /client_side_only_impl = https://github.com/google/vsaq/tree/master/client_side_only_impl
-- - /questionnaires = https://github.com/google/vsaq/tree/master/questionnaires
-- - /static = https://github.com/google/vsaq/tree/master/vsaq/static
+ - /client_side_only_impl = https://github.com/google/vsaq/tree/master/client_side_only_impl
+ - /questionnaires = https://github.com/google/vsaq/tree/master/questionnaires
+ - /static = https://github.com/google/vsaq/tree/master/vsaq/static
 
 ###### Usage
 When container starts all files in the ./vsaq folder is copied into the relevant cloned repo locations and the vsaq application is compiled. Changes to these files requires re-running the docker-compose.
