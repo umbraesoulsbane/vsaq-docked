@@ -51,3 +51,4 @@ $RECYCLE.BIN/
 !/vsaq/static/README.md
 /srv/logs/httpd/*
 !/srv/logs/httpd/README.md
+Jenkinsfile
